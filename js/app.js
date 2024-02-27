@@ -58,7 +58,10 @@ let lima = {
 }
 
 
-//functions
+//funtion to display city info
+//call function to display info
+
+//functions -
 function generateEstimate(min, max, avg) {
 // loop over the hours
 // random number
