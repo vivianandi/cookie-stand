@@ -1,0 +1,14 @@
+let hours=["7am",
+"8am",
+...];
+
+let seattle= {
+  name: "Seattle",
+    phone: "111-222-3333",
+    address: "11 Cookie Lane, Seattle, WA 98121",
+    hours: "6am, 7am, 8am, 9am, 10am, 11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm, 6pm, 7pm"
+    minCustomers: 23,
+    maxCustomers: 65,
+    avgSale: 6.3,
+    estimates: []
+}
