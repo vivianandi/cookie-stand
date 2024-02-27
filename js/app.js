@@ -62,9 +62,17 @@ let lima = {
 //call function to display info
 
 //functions -
-function generateEstimate(min, max, avg) {
+//function generateEstimate(min, max, avg) {
 // loop over the hours
 // random number
 // push to an array
 // return the array
 //}
+
+// let allCities = [seattle, tokyo, dubai, paris, lima]
+let allCities = [];
+allCities.push(seattle);
+allCities.push(tokyo);
+allCities.push(dubai);
+allCities.push(paris);
+allCities.push(lima);
