@@ -59,7 +59,7 @@ let lima = {
 
 
 //functions
-//function generateEstimate( min, max, avg ) { 
+function generateEstimate(min, max, avg) {
 // loop over the hours
 // random number
 // push to an array
