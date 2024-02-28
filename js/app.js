@@ -49,9 +49,7 @@ let lima = {
 
 //random number
 function randomNumberGenerator(minCustomers, maxCustomers) {
-  return Math.floor(
-    Math.random() * (maxCustomers - minCustomers + 1) + minCustomers
-  );
+  return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
 }
 
 // let allCities = [seattle, tokyo, dubai, paris, lima]
