@@ -1,6 +1,7 @@
-let hours = "6am, 7am, 8am, 9am, 10am, 11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm, 6pm, 7pm"
+let hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
 
 let seattle = {
+  name: "Seattle",
   minCustomers: 23,
   maxCustomers: 65,
   avgSale: 6.3,
@@ -8,6 +9,7 @@ let seattle = {
 }
 
 let tokyo = {
+  name: "Tokyo",
   minCustomers: 3,
   maxCustomers: 24,
   avgSale: 1.2,
@@ -15,6 +17,7 @@ let tokyo = {
 }
 
 let dubai = {
+  name: "Dubai",
   minCustomers: 11,
   maxCustomers: 38,
   avgSale: 3.7,
@@ -22,6 +25,7 @@ let dubai = {
 }
 
 let paris = {
+  name: "Paris",
   minCustomers: 20,
   maxCustomers: 38,
   avgSale: 2.3,
@@ -29,33 +33,26 @@ let paris = {
 }
 
 let lima = {
+  name: "Lima",
   minCustomers: 2,
   maxCustomers: 16,
   avgSale: 4.6,
   estimates: []
 }
 
-
-//funtion to display city info
-//call function to display info
-
-//functions -
-//function generateEstimate(min, max, avg) {
-// loop over the hours
-// random number
-// push to an array
-// return the array
-//}
-
-//random number
+//function to display random number
 function randomNumberGenerator(minCustomers, maxCustomers) {
   return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
 }
 
-// let allCities = [seattle, tokyo, dubai, paris, lima]
-let allCities = [];
-allCities.push(seattle);
-allCities.push(tokyo);
-allCities.push(dubai);
-allCities.push(paris);
-allCities.push(lima);
+//Use randomNumberGenerator to create function for estimates with sales data for each hour based on min and max
+function generateEstimate(city) {
+  city.estimates = [];
+  for (let i = 0; i < hours.length; i++) {
+    let hour = hours[i];
+    let randomCustomers = randomNumberGenerator(city.minCustomers, city.maxCustomers);
+    let cookiesSold = Math.round(randomCustomers * city.avgSale);
+    city.estimates.push({ hour, cookiesSold });
+  }
+}
+
