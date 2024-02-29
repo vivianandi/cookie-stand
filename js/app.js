@@ -50,19 +50,20 @@ let lima = {
   estimates: []
 };
 
-//function to display random number of customers
+//function to display random number of customers 
 function randomNumberGenerator(minCustomers, maxCustomers) {
   return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
 }
 
+//Function to simulate cookies purchases
 //function to store the simulated amounts of cookies purchased/hour/location using avg cookies purchased and random number of customers generated
 function generateEstimate(city) {
-  city.estimates = [];
   for (let i = 0; i < hours.length; i++) {
     let hour = hours[i];
     let randomCustomers = randomNumberGenerator(city.minCustomers, city.maxCustomers);
     let cookiesSold = Math.round(randomCustomers * city.avgSale);
     city.estimates.push({ hour, cookiesSold });
+    city.totalCookies += cookiesSold;
   }
 }
 
@@ -105,3 +106,12 @@ for (let i = 0; i < allStores.length; i++) {
 }
 
 //Render to Sales Data below
+
+
+//Function to simulate cookies purchases
+
+//Function to generate a random number
+
+//call function for simulated cookie purchases per hour
+
+//call function to display results for each section
