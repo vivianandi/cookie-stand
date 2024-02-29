@@ -1,0 +1,39 @@
+header {
+  background: ;
+
+  h1 {
+    color: ivory;
+    font-size: 3em;
+    padding: 0.25em;
+    text-align: center;
+  }
+
+  nav {
+    background: ivory;
+    padding: .25em;
+
+    li {
+      display: inline-block;
+      padding: .25em;
+
+      a {
+        text-decoration: none;
+        color: #111;
+      }
+    }
+  }
+}
+
+body {
+  background: ;
+}
+
+main {
+  margin: 1em auto;
+  width: 75%;
+
+  h2 {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
