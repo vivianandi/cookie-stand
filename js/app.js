@@ -1,4 +1,4 @@
-let hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"]
+let hours = ["6am", "7am", "8am", "9am", "10am", "11am", "12pm", "1pm", "2pm", "3pm", "4pm", "5pm", "6pm", "7pm"];
 
 let seattle = {
   name: "Seattle",
@@ -8,7 +8,7 @@ let seattle = {
   maxCustomers: 65,
   avgSale: 6.3,
   estimates: []
-}
+};
 
 let tokyo = {
   name: "Tokyo",
@@ -18,7 +18,7 @@ let tokyo = {
   maxCustomers: 24,
   avgSale: 1.2,
   estimates: []
-}
+};
 
 let dubai = {
   name: "Dubai",
@@ -28,7 +28,7 @@ let dubai = {
   maxCustomers: 38,
   avgSale: 3.7,
   estimates: []
-}
+};
 
 let paris = {
   name: "Paris",
@@ -38,24 +38,24 @@ let paris = {
   maxCustomers: 38,
   avgSale: 2.3,
   estimates: []
-}
+};
 
 let lima = {
   name: "Lima",
   contact: "555-555-5555",
-  location: "Ca. Gral. Borgoño cuadra 8, Miraflores 15074";
+  location: "Ca. Gral. Borgoño cuadra 8, Miraflores 15074",
   minCustomers: 2,
   maxCustomers: 16,
   avgSale: 4.6,
   estimates: []
-}
+};
 
-//function to display random number
+//function to display random number of customers
 function randomNumberGenerator(minCustomers, maxCustomers) {
   return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
 }
 
-//Use randomNumberGenerator to create function for estimates with sales data for each hour based on min and max
+//function to store the simulated amounts of cookies purchased/hour/location using avg cookies purchased and random number of customers generated
 function generateEstimate(city) {
   city.estimates = [];
   for (let i = 0; i < hours.length; i++) {
@@ -66,16 +66,42 @@ function generateEstimate(city) {
   }
 }
 
-let allCities = []
+let allStores = [seattle, tokyo, dubai, paris, lima];
 
-// Dog Constructor Function (Factory)
-// Initializes an instance of "Dog"
-//   As a part of that, we randomly assign Likes and
-//   push it to the allDogs array
-function city(name, breed, color) {
-  // Defines the shape of the object (a Dog)
-  this.name = name;
-  this.breed = breed;
-  this.color = color;
-  this.getsAlongWith = [];
+function renderStores(store) {
+  let storeDisplayContainer = document.getElementById('storeDisplay');
 
+  //add section
+  let section = document.createElement("section");
+  section.id = store.name;
+
+  //add h2
+  let title = document.createElement("h2");
+  title.textContent = store.name;
+
+  let details = document.createElement("ul");
+  let hoursItem = document.createElement("li");
+  hoursItem.textContent = `Hours Open: 6am-7pm`;
+  details.appendChild(hoursItem);
+
+  let contact = document.createElement("li");
+  contact.textContent = `Contact Info: ${store.contact}`;
+  details.appendChild(contact);
+
+  let location = document.createElement("li");
+  location.textContent = `Location: ${store.location}`;
+  details.appendChild(location);
+
+  //section, not details
+  section.appendChild(title);
+  section.appendChild(details);
+
+  storeDisplayContainer.appendChild(section);
+}
+
+// Call function for each store in a loop
+for (let i = 0; i < allStores.length; i++) {
+  renderStores(allStores[i]);
+}
+
+//Render to Sales Data below
