@@ -29,7 +29,6 @@ let dubai = {
   avgSale: 3.7,
   estimates: []
 };
-
 let paris = {
   name: "Paris",
   contact: "444-444-4444",
@@ -50,6 +49,26 @@ let lima = {
   estimates: []
 };
 
+//Create constructor function that creates instances
+function cookieStore(name, contact, location, minCustomers, maxCustomers, avgSale) {
+  this.name = name;
+  this.contact = contact;
+  this.location = location;
+  this.minCustomers = minCustomers;
+  this.maxCustomers = maxCustomers;
+  this.avgSale = avgSale;
+  this.totalCookies = 0;
+}
+
+//Create instance (created from "factory") of new stores
+let seattle = new cookieStore("Seattle", "123-456-7890", "2901 3rd Ave #300, Seattle, WA 98121", 23, 65, 6.3);
+let tokyo = new cookieStore("Tokyo", "222-222-2222", "1 Chrome-1-2 Oshiage, Sumida City, Tokyo 131-8684", 3, 24, 1.2);
+let dubai = new cookieStore("Dubai", "333-333-3333", "1 Sheikh Mohammed bin Rashid Blvd - Dubai", 11, 38, 3.7);
+let paris = new cookieStore("Paris", "444-444-4444", "Champ de Mars, 5 Avenue Anatole France, 75007 Paris", 20, 38, 2.3)
+let lima = new cookieStore("Lima", "555-555-5555", "Ca. Gral. Borgoño cuadra 8, Miraflores 15074", 2, 16, 4.6);
+
+let allStores = [seattle, toyo, dubai, paris, lima];
+
 //function to display random number of customers 
 function randomNumberGenerator(minCustomers, maxCustomers) {
   return Math.floor(Math.random() * (maxCustomers - minCustomers + 1) + minCustomers);
@@ -67,8 +86,7 @@ function generateEstimate(city) {
   }
 }
 
-let allStores = [seattle, tokyo, dubai, paris, lima];
-
+//
 function renderStores(store) {
   let storeDisplayContainer = document.getElementById('storeDisplay');
 
