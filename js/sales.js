@@ -121,3 +121,25 @@ allStores.push(seattle, tokyo, dubai, paris, lima);
 
 // Call 
 renderSalesData();
+
+// Work in Progress - 
+//Events - Add a new store to the table
+
+// let addStoreButton = document.getElementById("locationForm")
+// let addStoreButton = document.getElementById("minCustomersForm")
+// let addStoreButton = document.getElementById("maxCustomersForm")
+// let addStoreButton = document.getElementById("avgSaleForm")
+
+// storeForm.addEventListener("submit", function (event) {
+//   event.preventDefault();
+
+//   let locationForm = event.target.location.value;
+//   let minCustomersForm = event.target.minCustomers.value;
+//   let maxCustomersForm = event.target.maxCustomers.value;
+//   let avgSaleForm = event.target.avgSaleForm.value;
+
+//   let newStore = new Store(location, minCustomers, maxCustomers, avgSale);
+//   store.render();
+
+//   console.log(location, minCustomers, maxCustomers, avgSale);
+// });
