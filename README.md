@@ -5,3 +5,4 @@
 ![LHR Mon](./assets/LHR%20Mon.png)
 
 ## Tuesday Lab 07
+![LHR Tues](./assets/LHR%20Tues.png)
