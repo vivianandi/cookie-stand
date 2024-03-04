@@ -56,3 +56,18 @@ form {
   margi-top: 1em;
   display: flex;
 }
+
+#salesTableHeader {
+  background-color: grey;
+  color: white;
+}
+
+#salesTableFooter {
+  background-color: grey;
+  color: white;
+}
+
+#salesTableBody {
+  background-color: salmon;
+  color: black;
+}
