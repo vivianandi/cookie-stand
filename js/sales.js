@@ -125,21 +125,32 @@ renderSalesData();
 // Work in Progress - 
 //Events - Add a new store to the table
 
-// let addStoreButton = document.getElementById("locationForm")
-// let addStoreButton = document.getElementById("minCustomersForm")
-// let addStoreButton = document.getElementById("maxCustomersForm")
-// let addStoreButton = document.getElementById("avgSaleForm")
+let addStoreButton = document.getElementById("storeForm");
 
-// storeForm.addEventListener("submit", function (event) {
-//   event.preventDefault();
+addStoreButton.addEventListener("submit", function (event) {
+  event.preventDefault();
 
-//   let locationForm = event.target.location.value;
-//   let minCustomersForm = event.target.minCustomers.value;
-//   let maxCustomersForm = event.target.maxCustomers.value;
-//   let avgSaleForm = event.target.avgSaleForm.value;
+  let location = event.target.locationForm.value;
+  let minCustomers = parseInt(event.target.minCustomersForm.value);
+  let maxCustomers = parseInt(event.target.maxCustomersForm.value);
+  let avgSale = parseFloat(event.target.avgSaleForm.value);
 
-//   let newStore = new Store(location, minCustomers, maxCustomers, avgSale);
-//   store.render();
+  // cratenew instance of CookieStore
+  let newStore = new CookieStore(location, "", "", minCustomers, maxCustomers, avgSale);
+  allStores.push(newStore);
 
-//   console.log(location, minCustomers, maxCustomers, avgSale);
-// });
+  // Clear the existing table and re-render with the new store
+  clearTable();
+  renderSalesData();
+});
+
+// clear the existing table
+function clearTable() {
+  let tableBody = document.getElementById("salesTableBody");
+  while (tableBody.firstChild) {
+    tableBody.removeChild(tableBody.firstChild);
+  }
+
+  let tableFooter = document.getElementById("salesTableFooter");
+  tableFooter.innerHTML = '';
+}
