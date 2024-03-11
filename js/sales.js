@@ -77,7 +77,17 @@ function renderHeaderRow() {
 
 // Function to render footer row
 function renderFooterRow() {
-  let footerRow = document.createElement("tr");
+  let footerRow = document.getElementById("footerRow");
+
+  // If footer row doesn't exist, create it
+  if (!footerRow) {
+    footerRow = document.createElement("tr");
+    footerRow.id = "footerRow";
+  } else {
+    // Clear existing content
+    footerRow.innerHTML = '';
+  }
+
   let footerTotalCell = document.createElement("td");
   footerTotalCell.textContent = "Totals";
   footerRow.appendChild(footerTotalCell);
@@ -100,7 +110,10 @@ function renderSalesData() {
   let salesTableHeader = document.getElementById("salesTableHeader");
   let salesTableFooter = document.getElementById("salesTableFooter");
 
-  salesTableHeader.appendChild(renderHeaderRow());
+  // Move header rendering outside the loop
+  if (salesTableHeader.childElementCount === 0) {
+    salesTableHeader.appendChild(renderHeaderRow());
+  }
 
   for (let i = 0; i < allStores.length; i++) {
     allStores[i].generateEstimate();
@@ -151,6 +164,11 @@ function clearTable() {
     tableBody.removeChild(tableBody.firstChild);
   }
 
-  let tableFooter = document.getElementById("salesTableFooter");
-  tableFooter.innerHTML = '';
+  // Manually reset totalCookiesPerHour array to 0
+  for (let i = 0; i < totalCookiesPerHour.length; i++) {
+    totalCookiesPerHour[i] = 0;
+  }
+
+  // Manually reset totalDailyCookies to 0
+  totalDailyCookies = 0;
 }
